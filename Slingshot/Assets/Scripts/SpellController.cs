@@ -4,32 +4,42 @@ using UnityEngine.SceneManagement;
 public class SpellController : MonoBehaviour
 {
     private Vector3 initPosition;
-    new CircleCollider2D collider;
-    int speed = 50;
+    private Rigidbody2D rb;
+    private int bounds = 3;
+    private bool isLaunched = false;
+    private float lauchTimer = 0;
+    private float totalTime = 6;
+    [SerializeField] private float speed = 550f;
 
     private void Awake()
     {
-        collider = GetComponent<CircleCollider2D>();
+        rb = GetComponent<Rigidbody2D>();
         initPosition = transform.position;
     }
 
     private void Update()
     {
-        // TODO: I did this wrong
-        if (transform.position.y > 10 || transform.position.y < -10 || transform.position.x > -10 || transform.position.x < 10)
+        if (isLaunched && rb.linearVelocity.magnitude <= .5)
         {
-            Debug.Log("did it wrong");
+            lauchTimer += Time.deltaTime;
+        }
+
+        if (transform.position.y > bounds || transform.position.y < -bounds ||
+            transform.position.x > bounds || transform.position.x < -bounds ||
+            lauchTimer > totalTime)
+        {
+            //transform.position = initPosition;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
         }
     }
 
     private void OnMouseUp()
     {
-        // Need to fix the collider variable
-
-        //Vector2 directionToInitPos = initPosition - transform.position;
-        //collider.AddForce(directionToInitPos * speed);
-        //collider.gracityScale = 1;
+        Vector2 directionToInitPos = (Vector2)initPosition - (Vector2)transform.position;
+        rb.AddForce(directionToInitPos * speed);
+        rb.gravityScale = 1;
+        isLaunched = true;
     }
 
     private void OnMouseDrag()
@@ -37,5 +47,4 @@ public class SpellController : MonoBehaviour
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(newPosition.x, newPosition.y, 0);
     }
-
 }
