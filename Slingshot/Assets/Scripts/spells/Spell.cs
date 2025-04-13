@@ -1,32 +1,32 @@
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SpellController : MonoBehaviour
+public abstract class Spell : MonoBehaviour
 {
-    private Vector3 initPosition;
-    private Rigidbody2D rb;
-    private int bounds = 3;
-    private bool isLaunched = false;
-    private float lauchTimer = 0;
-    private float totalTime = 3;
-    [SerializeField] private float speed = 550f;
+    protected Vector3 initPosition;
+    protected Rigidbody2D rb;
+    protected int bounds = 3;
+    protected bool isLaunched = false;
+    protected float launchTimer = 0;
+    protected float totalTime = 3;
+    [SerializeField] protected float speed = 550f;
 
-    private void Awake()
+    //public Spell(/* Could do a Enum */) { }
+
+    protected virtual void SpellAwake()
     {
         rb = GetComponent<Rigidbody2D>();
         initPosition = transform.position;
     }
 
-    private void Update()
+    protected virtual void SpellUpdate()
     {
         if (isLaunched && rb.linearVelocity.magnitude <= .3)
         {
-            lauchTimer += Time.deltaTime;
+            launchTimer += Time.deltaTime;
         }
 
-        if (transform.position.y > bounds || transform.position.y < -bounds ||
-            transform.position.x > bounds || transform.position.x < -bounds ||
-            lauchTimer > totalTime)
+        if (transform.position.y < -bounds || launchTimer > totalTime)
         {
             //transform.position = initPosition;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
@@ -34,7 +34,7 @@ public class SpellController : MonoBehaviour
         }
     }
 
-    private void OnMouseUp()
+    protected virtual void OnMouseUp()
     {
         Vector2 directionToInitPos = (Vector2)initPosition - (Vector2)transform.position;
         rb.AddForce(directionToInitPos * speed);
@@ -42,7 +42,7 @@ public class SpellController : MonoBehaviour
         isLaunched = true;
     }
 
-    private void OnMouseDrag()
+    protected virtual void OnMouseDrag()
     {
         Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         transform.position = new Vector3(newPosition.x, newPosition.y, 0);
