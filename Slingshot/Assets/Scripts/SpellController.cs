@@ -8,7 +8,7 @@ public class SpellController : MonoBehaviour
     private int bounds = 3;
     private bool isLaunched = false;
     private float lauchTimer = 0;
-    private float totalTime = 6;
+    private float totalTime = 3;
     [SerializeField] private float speed = 550f;
 
     private void Awake()
@@ -19,7 +19,7 @@ public class SpellController : MonoBehaviour
 
     private void Update()
     {
-        if (isLaunched && rb.linearVelocity.magnitude <= .5)
+        if (isLaunched && rb.linearVelocity.magnitude <= .3)
         {
             lauchTimer += Time.deltaTime;
         }
