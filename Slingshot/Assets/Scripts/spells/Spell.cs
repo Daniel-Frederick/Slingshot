@@ -9,18 +9,24 @@ public abstract class Spell : MonoBehaviour
     protected bool isLaunched = false;
     protected float launchTimer = 0;
     protected float totalTime = 3;
+    protected LineRenderer lineRenderer;
     [SerializeField] protected float speed = 550f;
 
-    //public Spell(/* Could do a Enum */) { }
-
-    protected virtual void SpellAwake()
+    protected virtual void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        lineRenderer = GetComponent<LineRenderer>();
         initPosition = transform.position;
     }
 
-    protected virtual void SpellUpdate()
+    protected virtual void Update()
     {
+        if (!isLaunched)
+        {
+            lineRenderer.SetPosition(0, initPosition);
+            lineRenderer.SetPosition(1, transform.position);
+        }
+
         if (isLaunched && rb.linearVelocity.magnitude <= .3)
         {
             launchTimer += Time.deltaTime;
@@ -28,10 +34,13 @@ public abstract class Spell : MonoBehaviour
 
         if (transform.position.y < -bounds || launchTimer > totalTime)
         {
-            //transform.position = initPosition;
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-
         }
+    }
+
+    protected virtual void OnMouseDown()
+    {
+        lineRenderer.enabled = true;
     }
 
     protected virtual void OnMouseUp()
@@ -40,6 +49,7 @@ public abstract class Spell : MonoBehaviour
         rb.AddForce(directionToInitPos * speed);
         rb.gravityScale = 1;
         isLaunched = true;
+        lineRenderer.enabled = false;
     }
 
     protected virtual void OnMouseDrag()

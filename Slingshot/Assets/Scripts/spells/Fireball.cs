@@ -3,23 +3,13 @@ using UnityEngine.SceneManagement;
 
 public class Fireball : Spell
 {
-    //private void Awake()
-    //{
-    //    base.SpellAwake();
-    //}
-
-    //private void Update()
-    //{
-    //    base.SpellUpdate();
-    //}
-
-    //private void OnMouseUp()
-    //{
-    //    base.OnMouseUp();
-    //}
-
-    //private void OnMouseDrag()
-    //{
-    //    base.OnMouseDrag();
-    //}
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (!collision.gameObject.CompareTag("Road"))
+        {
+            Destroy(collision.gameObject);
+            Destroy(gameObject);
+            // Continue to the next Spell
+        }
+    }
 }

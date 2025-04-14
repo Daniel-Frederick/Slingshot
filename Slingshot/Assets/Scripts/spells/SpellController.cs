@@ -2,12 +2,11 @@ using UnityEngine;
 
 public class SpellController : MonoBehaviour
 {
-    //private Spell spell = new Spell();
+    private GameObject spell;
 
     void Awake()
     {
-        // Which Spell am I?
-        // Enum could answer that question
+        spell = GetComponent<GameObject>();
     }
 
     void Start()
