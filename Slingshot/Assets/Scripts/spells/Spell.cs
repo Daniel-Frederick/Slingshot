@@ -10,7 +10,11 @@ public abstract class Spell : MonoBehaviour
     protected float launchTimer = 0;
     protected float totalTime = 3;
     protected LineRenderer lineRenderer;
+    private int spellCounter;
+
     [SerializeField] protected float speed = 550f;
+
+    public abstract void OnCollisionEnter2D(Collision2D collision);
 
     protected virtual void Awake()
     {
@@ -23,8 +27,8 @@ public abstract class Spell : MonoBehaviour
     {
         if (!isLaunched)
         {
-            lineRenderer.SetPosition(0, initPosition);
-            lineRenderer.SetPosition(1, transform.position);
+            lineRenderer.SetPosition(0, transform.position);
+            lineRenderer.SetPosition(1, initPosition);
         }
 
         if (isLaunched && rb.linearVelocity.magnitude <= .3)
