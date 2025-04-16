@@ -9,7 +9,6 @@ public class Fireball : Spell
         {
             Destroy(collision.gameObject);
             Destroy(gameObject);
-            // Continue to the next Spell
         }
     }
 }

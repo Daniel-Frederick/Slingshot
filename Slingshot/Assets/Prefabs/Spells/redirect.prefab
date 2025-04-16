@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 5203937055643565081}
   - component: {fileID: 2851881109302862844}
   - component: {fileID: 6590175534073224234}
-  - component: {fileID: 5034305371333533209}
+  - component: {fileID: 4999218729402929956}
   m_Layer: 0
-  m_Name: fireball
+  m_Name: redirect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1000
-  m_Sprite: {fileID: 5353841184698615464, guid: f288fe3e4140c374e969211685b3c2d5, type: 3}
+  m_Sprite: {fileID: -8036678782118707159, guid: 6451e3dbd6f42014a9b47baf86bc9b2d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -261,7 +261,7 @@ LineRenderer:
   m_UseWorldSpace: 1
   m_Loop: 0
   m_ApplyActiveColorSpace: 1
---- !u!114 &5034305371333533209
+--- !u!114 &4999218729402929956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -270,7 +270,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 3808619334604844163}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 11e2764153f83a04b8207221e3999153, type: 3}
+  m_Script: {fileID: 11500000, guid: a33c6e217f5ce4c45af9d5ad2a13aef3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 550
