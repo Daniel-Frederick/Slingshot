@@ -5,14 +5,15 @@ public abstract class Spell : MonoBehaviour
 {
     protected Vector3 initPosition;
     protected Rigidbody2D rb;
-    protected int bounds = 3;
+    private int bounds = 3;
     protected bool isLaunched = false;
     protected float launchTimer = 0;
-    protected float totalTime = 3;
+    private float totalTime = 3;
     protected LineRenderer lineRenderer;
     private int spellCounter;
 
     [SerializeField] protected float speed = 550f;
+    [SerializeField] private float maxPullDirection = .5f;
 
     public abstract void OnCollisionEnter2D(Collision2D collision);
 
@@ -58,7 +59,14 @@ public abstract class Spell : MonoBehaviour
 
     protected virtual void OnMouseDrag()
     {
-        Vector3 newPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(newPosition.x, newPosition.y, 0);
+        Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        mousePosition.z = 0;
+
+        Vector3 direction = mousePosition - initPosition;
+        if (direction.magnitude > maxPullDirection) {
+            direction = direction.normalized * maxPullDirection;
+        } 
+        transform.position = initPosition + direction;
     }
+
 }
