@@ -10,6 +10,8 @@ public class GoblinController : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        // Goblin fall damage
         if (collision.gameObject.CompareTag("Road") && collision.relativeVelocity.y > .8) {
             Destroy(gameObject);
         }

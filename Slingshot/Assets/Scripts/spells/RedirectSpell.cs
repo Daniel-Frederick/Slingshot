@@ -2,12 +2,6 @@ using UnityEngine;
 
 public class RedirectSpell : Spell
 {
-    public override void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("Goblin")) {
-            Destroy(collision.gameObject);
-        }
-    }
 
     protected override void Update() {
         base.Update();

@@ -15,7 +15,11 @@ public abstract class Spell : MonoBehaviour
     [SerializeField] protected float speed = 550f;
     [SerializeField] private float maxPullDirection = .5f;
 
-    public abstract void OnCollisionEnter2D(Collision2D collision);
+    public virtual void OnCollisionEnter2D(Collision2D collision) {
+        if (collision.gameObject.CompareTag("Goblin")) {
+            Destroy(collision.gameObject);
+        }
+    }
 
     protected virtual void Awake()
     {
