@@ -13,7 +13,8 @@ public abstract class Spell : MonoBehaviour
 
     [SerializeField] protected float speed = 550f;
     [SerializeField] private float maxPullDirection = .5f;
-    [SerializeField] private GameObject spellPrefab;
+    public Vector3 InitPosition => initPosition;
+
 
     public virtual void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Goblin")) {
@@ -36,17 +37,17 @@ public abstract class Spell : MonoBehaviour
             lineRenderer.SetPosition(1, initPosition);
         }
 
-        if (isLaunched && rb.linearVelocity.magnitude <= .3)
+        if (isLaunched && rb.linearVelocity.magnitude <= .3 || gameObject == null)
         {
             launchTimer += Time.deltaTime;
         }
 
-        if (transform.position.y < -bounds || launchTimer > totalTime)
-        {
-            rb.gravityScale = 0;
-            Instantiate(spellPrefab, initPosition, Quaternion.identity);
-            Destroy(gameObject);
-        }
+        // if (transform.position.y < -bounds || launchTimer > totalTime)
+        // {
+        //     rb.gravityScale = 0;
+        //     Destroy(gameObject);
+        //     Instantiate(SpellSelector.GetSelectedSpellPrefab, initPosition, Quaternion.identity);
+        // }
     }
 
     protected virtual void OnMouseDown()
