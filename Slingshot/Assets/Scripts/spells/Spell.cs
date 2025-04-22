@@ -10,10 +10,10 @@ public abstract class Spell : MonoBehaviour
     protected float launchTimer = 0;
     private float totalTime = 3;
     protected LineRenderer lineRenderer;
-    private int spellCounter;
 
     [SerializeField] protected float speed = 550f;
     [SerializeField] private float maxPullDirection = .5f;
+    [SerializeField] private GameObject spellPrefab;
 
     public virtual void OnCollisionEnter2D(Collision2D collision) {
         if (collision.gameObject.CompareTag("Goblin")) {
@@ -43,7 +43,9 @@ public abstract class Spell : MonoBehaviour
 
         if (transform.position.y < -bounds || launchTimer > totalTime)
         {
-            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+            rb.gravityScale = 0;
+            Instantiate(spellPrefab, initPosition, Quaternion.identity);
+            Destroy(gameObject);
         }
     }
 
@@ -58,6 +60,7 @@ public abstract class Spell : MonoBehaviour
         rb.AddForce(directionToInitPos * speed);
         rb.gravityScale = 1;
         isLaunched = true;
+        LevelController.spellCount++;
         lineRenderer.enabled = false;
     }
 

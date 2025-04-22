@@ -3,7 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
-    
+    public static uint spellCount = 0;
     private GoblinController[] goblins;
 
     private void OnEnable()

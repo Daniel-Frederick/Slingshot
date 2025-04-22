@@ -275,3 +275,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 550
   maxPullDirection: 0.5
+  spellPrefab: {fileID: 3808619334604844163}
