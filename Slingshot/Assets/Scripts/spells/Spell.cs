@@ -75,5 +75,4 @@ public abstract class Spell : MonoBehaviour
         } 
         transform.position = initPosition + direction;
     }
-
 }

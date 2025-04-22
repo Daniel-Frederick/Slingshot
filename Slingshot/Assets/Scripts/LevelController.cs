@@ -24,6 +24,6 @@ public class LevelController : MonoBehaviour
         }
 
         // TODO: Should go back to level page
-        SceneManager.LoadScene("Level2");
+        // SceneManager.LoadScene("Level2");
     }
 }

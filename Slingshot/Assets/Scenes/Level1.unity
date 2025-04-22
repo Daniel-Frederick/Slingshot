@@ -320,7 +320,7 @@ Transform:
   m_GameObject: {fileID: 255915733}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.24036293, y: -0.13735776, z: -0.013684442}
+  m_LocalPosition: {x: 0.161, y: -0.13735776, z: -0.013684442}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -717,7 +717,7 @@ Transform:
   m_GameObject: {fileID: 519420028}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.231, y: 0.266, z: -9.986316}
+  m_LocalPosition: {x: 0.49, y: 0.266, z: -9.986316}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -836,6 +836,10 @@ PrefabInstance:
       value: background (1)
       objectReference: {fileID: 0}
     - target: {fileID: 8251366786131424623, guid: b0dc67653a40c614d99623b5282079e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251366786131424623, guid: b0dc67653a40c614d99623b5282079e4, type: 3}
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
@@ -952,6 +956,10 @@ PrefabInstance:
       propertyPath: m_Sprite
       value: 
       objectReference: {fileID: 6946876648732156625, guid: 7b80e7d9f641fe74baf697824040d15d, type: 3}
+    - target: {fileID: 6590175534073224234, guid: e90a9fa180b477246a9b7124725b9da2, type: 3}
+      propertyPath: m_Positions.Array.data[0].x
+      value: -0.815
+      objectReference: {fileID: 0}
     - target: {fileID: 7210654406689879871, guid: e90a9fa180b477246a9b7124725b9da2, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.145
@@ -1982,6 +1990,10 @@ PrefabInstance:
       value: background (2)
       objectReference: {fileID: 0}
     - target: {fileID: 8251366786131424623, guid: b0dc67653a40c614d99623b5282079e4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8251366786131424623, guid: b0dc67653a40c614d99623b5282079e4, type: 3}
       propertyPath: m_TagString
       value: Road
       objectReference: {fileID: 0}
@@ -2047,7 +2059,7 @@ Transform:
   m_GameObject: {fileID: 1715683177}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.9310715, y: -0.044531286, z: 0.013684444}
+  m_LocalPosition: {x: 1.3324344, y: -0.044531286, z: 0.013684444}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
