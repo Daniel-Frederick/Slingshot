@@ -3,6 +3,7 @@ using UnityEngine.SceneManagement;
 
 public class LevelController : MonoBehaviour
 {
+    
     private GoblinController[] goblins;
 
     private void OnEnable()
