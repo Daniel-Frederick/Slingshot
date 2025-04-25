@@ -5,7 +5,7 @@ public class LevelController : MonoBehaviour
 {
     public static uint spellCount = 0;
     private GoblinController[] goblins;
-    private uint levelIndex = 1;
+    private static int levelIndex = 1;
 
 
     private void OnEnable()
@@ -25,6 +25,6 @@ public class LevelController : MonoBehaviour
         }
 
         levelIndex++;
-        SceneManager.LoadScene("Level" + levelIndex);
+        SceneManager.LoadScene(levelIndex);
     }
 }
