@@ -1,2 +1,17 @@
 fileFormatVersion: 2
 guid: a43989b8931401e40bfbf58e8b45f08b
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - fireball: {fileID: 3808619334604844163, guid: 0d490b5581564174a806e0cf2148b950, type: 3}
+  - boomerang: {fileID: 3808619334604844163, guid: e90a9fa180b477246a9b7124725b9da2, type: 3}
+  - redirect: {fileID: 3808619334604844163, guid: bb5896fdef946454dad60c7c038cbb44, type: 3}
+  - fireballButton: {instanceID: 0}
+  - boomerangButton: {instanceID: 0}
+  - redirectButton: {instanceID: 0}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

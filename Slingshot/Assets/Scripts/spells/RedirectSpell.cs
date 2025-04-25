@@ -6,7 +6,7 @@ public class RedirectSpell : Spell
     protected override void Update() {
         base.Update();
 
-        if (isLaunched && Input.GetMouseButtonDown(0) && clickCount == 0) {
+        if (IsLaunched && Input.GetMouseButtonDown(0) && clickCount == 0) {
             clickCount++;
             Vector3 mouseWorldPosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 direction = ((Vector2)mouseWorldPosition - rb.position).normalized;
