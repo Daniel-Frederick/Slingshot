@@ -5,13 +5,14 @@ public class LevelController : MonoBehaviour
 {
     public static uint spellCount = 0;
     private GoblinController[] goblins;
+    private uint levelIndex = 1;
+
 
     private void OnEnable()
     {
         goblins = FindObjectsByType<GoblinController>(FindObjectsSortMode.None);
     }
 
-    // Update is called once per frame
     void Update()
     {
         // This is inefficient - should only go off when a Goblin is destroyed
@@ -23,7 +24,7 @@ public class LevelController : MonoBehaviour
             }
         }
 
-        // TODO: Should go back to level page
-        // SceneManager.LoadScene("Level2");
+        levelIndex++;
+        SceneManager.LoadScene("Level" + levelIndex);
     }
 }
