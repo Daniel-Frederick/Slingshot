@@ -1,2 +1,2 @@
-# Slingshot
-A game I created for my University of Datyon class CPS 352
+# Wizaga
+Fun personal project to learn more about Unity, C#, and Game Development in General.
