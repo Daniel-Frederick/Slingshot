@@ -26,5 +26,6 @@ public class LevelController : MonoBehaviour
 
         levelIndex++;
         SceneManager.LoadScene(levelIndex);
+        spellCount = 0;
     }
 }
