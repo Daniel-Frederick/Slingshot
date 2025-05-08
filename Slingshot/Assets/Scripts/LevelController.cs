@@ -5,7 +5,7 @@ public class LevelController : MonoBehaviour
 {
     public static uint spellCount = 0;
     private GoblinController[] goblins;
-    private static int levelIndex = 1;
+    [SerializeField] private GameObject levelComplete;
 
 
     private void OnEnable()
@@ -24,8 +24,6 @@ public class LevelController : MonoBehaviour
             }
         }
 
-        levelIndex++;
-        SceneManager.LoadScene(levelIndex);
-        spellCount = 0;
+        levelComplete.SetActive(true);
     }
 }
