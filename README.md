@@ -1,4 +1,6 @@
 # Wizaga
+![Wizaga](Slingshot\Assets\Sprites\MainMenu\Wizaga.png)
+
 Fun personal project to learn more about Unity, C#, and Game Development in General.
 
 Play my game here:
